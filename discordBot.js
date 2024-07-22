@@ -2,7 +2,14 @@ import { channel } from "diagnostics_channel";
 import { Client, GatewayIntentBits, Guild, REST, Routes } from "discord.js";
 import { config } from "dotenv";
 import drawPokemon from "./pokemon.js";
+import express from "express";
 config();
+const app = express();
+const port = process.env.PORT || 5000;
+app.get("/", (req, res) => {});
+app.listen(port, () => {
+  console.log("discordBot以上線");
+});
 const client = new Client({
   intents: [
     GatewayIntentBits.Guilds,
